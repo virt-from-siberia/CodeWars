@@ -8,22 +8,36 @@
  * My solution *
  **************/
 
-function moveZeros(arr) {
-  let zerroCach = 0;
-  let output = [];
+// function moveZeros(arr) {
+//   let zerroCach = 0;
+//   let output = [];
 
-  arr.forEach((x) => {
-    if (x === 0) zerroCach = zerroCach + 1;
-    else output.push(x);
-  });
+//   arr.forEach((x) => {
+//     if (x === 0) zerroCach = zerroCach + 1;
+//     else output.push(x);
+//   });
 
-  if (zerroCach !== 0) output = output.concat(new Array(zerroCach).fill(0));
+//   if (zerroCach !== 0) output = output.concat(new Array(zerroCach).fill(0));
 
-  return output;
-}
+//   return output;
+// }
 
-console.log("OUTPUT ::: ", moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]));
+// console.log("OUTPUT ::: ", moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]));
 
 /**************
  * Community solution *
  **************/
+
+var moveZeros = function (arr) {
+  return arr
+    .filter(function (x) {
+      return x !== 0;
+    })
+    .concat(
+      arr.filter(function (x) {
+        return x === 0;
+      })
+    );
+};
+
+// console.log("OUTPUT ::: ", moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]));
